@@ -13,13 +13,11 @@ namespace BetterMouseMovement.src {
         [HarmonyPatch(typeof(PlayerCharacterController), nameof(PlayerCharacterController.UpdateTurning))]
         public static bool PlayerCameraController_UpdateTurning(PlayerCharacterController __instance) {
             if (!BetterMouseMovement.modEnabled) return true;
-            if (__instance._isGrounded && __instance._groundBody != null)
-            {
+            if (__instance._isGrounded && __instance._groundBody != null) {
                 Vector3 vector = (__instance._movingPlatform != null) ? __instance._movingPlatform.GetAngularVelocity() : __instance._groundBody.GetAngularVelocity();
                 __instance._baseAngularVelocity = Vector3.Dot(vector, __instance.transform.up);
             }
-            else
-            {
+            else {
                 __instance._baseAngularVelocity *= 0.995f;
             }
             Quaternion carry = Quaternion.AngleAxis(__instance._baseAngularVelocity * Mathf.Rad2Deg * Time.fixedDeltaTime, __instance._transform.up);
@@ -28,3 +26,4 @@ namespace BetterMouseMovement.src {
         }
     }
 }
+
