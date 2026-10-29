@@ -4,7 +4,7 @@
   "author": "CheeseRunner1",
   "name": "Better Mouse Movement",
   "uniqueName": "CheeseRunner1.BetterMouseMovement",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "owmlVersion": "2.15.1",
   "dependencies": []
 }

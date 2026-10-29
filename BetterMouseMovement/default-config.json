@@ -3,6 +3,7 @@
   "enabled": true,
   "settings": {
     "Enable Better Mouse Movement": true,
+    "Mouse Smoothing": true,
     "Enable Max FPS (Disables VSync)": false,
     "Max FPS (30 - 1000)": 120
   }

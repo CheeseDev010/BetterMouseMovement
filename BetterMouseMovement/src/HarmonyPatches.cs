@@ -7,12 +7,12 @@ namespace BetterMouseMovement.src {
         [HarmonyPrefix]
         [HarmonyPatch(typeof(PlayerCameraController), nameof(PlayerCameraController.UpdateInput))]
         public static bool PlayerCameraController_UpdateInput() {
-            return !BetterMouseMovement.modEnabled;
+            return !BetterMouseMovement.mouseMovementEnabled;
         }
         [HarmonyPrefix]
         [HarmonyPatch(typeof(PlayerCharacterController), nameof(PlayerCharacterController.UpdateTurning))]
         public static bool PlayerCameraController_UpdateTurning(PlayerCharacterController __instance) {
-            if (!BetterMouseMovement.modEnabled) return true;
+            if (!BetterMouseMovement.mouseMovementEnabled) return true;
             if (__instance._isGrounded && __instance._groundBody != null) {
                 Vector3 vector = (__instance._movingPlatform != null) ? __instance._movingPlatform.GetAngularVelocity() : __instance._groundBody.GetAngularVelocity();
                 __instance._baseAngularVelocity = Vector3.Dot(vector, __instance.transform.up);
